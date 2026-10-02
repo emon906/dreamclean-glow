@@ -22,7 +22,7 @@ export function MapcnMarkerTooltip({
     let cancelled = false;
     let removeMap: (() => void) | undefined;
 
-    void import("maplibre-gl").then(({ default: maplibregl }) => {
+    void import("maplibre-gl").then((maplibregl) => {
       if (cancelled || !mapContainerRef.current) return;
 
       const map = new maplibregl.Map({
