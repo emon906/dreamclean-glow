@@ -10,6 +10,7 @@ import {
   House,
   Menu,
   Phone,
+  Play,
   RefreshCcw,
   Sparkles,
   SprayCan,
@@ -76,6 +77,14 @@ const transformations = [
   { title: "Living Room", image: livingImage },
   { title: "Move-In / Move-Out", image: moveImage },
 ];
+
+// Replace each "" with your reel video URL (e.g. an .mp4 link) when ready —
+// the placeholder disappears automatically once a URL is set.
+const reels = [
+  { title: "Deep Cleaning", video: "" },
+  { title: "Fresh & Spotless", video: "" },
+  { title: "Dream Clean Difference", video: "" },
+] as const;
 
 function Brand() {
   return (
@@ -195,6 +204,26 @@ function HomePage() {
                   <span className="comparison-line" />
                 </div>
                 <div className="transformation-caption"><h3>{title}</h3><span>Before &amp; After</span></div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="reels" className="section reels-section" aria-label="Cleaning in Action">
+          <div className="section-heading centered-heading">
+            <div><p className="eyebrow">Cleaning in Action</p><h2>A Little Look Inside Dream Clean</h2></div>
+            <p>Short clips from our visits — the details, the finish, and the care behind every clean.</p>
+          </div>
+          <div className="reels-grid">
+            {reels.map(({ title, video }) => (
+              <article className="reel-card" key={title} aria-label={title}>
+                {video ? (
+                  <video src={video} muted loop playsInline preload="metadata" />
+                ) : (
+                  <div className="reel-placeholder" aria-hidden="true" />
+                )}
+                <span className="reel-play" aria-hidden="true"><Play /></span>
+                <div className="reel-caption"><span className="reel-dot" aria-hidden="true" /><h3>{title}</h3></div>
               </article>
             ))}
           </div>
