@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep the homepage as a lightweight single-route presentation with reusable interactive sections; this preserves fast loading and simple maintenance.
+- Load the MapLibre service-area map through a client-only dynamic import; this keeps browser-only map code outside server rendering.

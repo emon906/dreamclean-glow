@@ -8,6 +8,7 @@ import {
   Check,
   ChevronRight,
   House,
+  MapPin,
   Menu,
   Phone,
   Play,
@@ -18,6 +19,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { InteractiveImageAccordion } from "@/components/ui/interactive-image-accordion";
+import { MapcnMarkerTooltip } from "@/components/ui/mapcn-marker-tooltip";
 import heroImage from "@/assets/dream-clean-hero.jpg";
 import kitchenImage from "@/assets/kitchen-transformation.jpg";
 import bathroomImage from "@/assets/bathroom-transformation.jpg";
@@ -74,8 +76,6 @@ const accordionItems = [
 const transformations = [
   { title: "Kitchen", image: kitchenImage },
   { title: "Bathroom", image: bathroomImage },
-  { title: "Living Room", image: livingImage },
-  { title: "Move-In / Move-Out", image: moveImage },
 ];
 
 // Replace each "" with your reel video URL (e.g. an .mp4 link) when ready —
@@ -192,7 +192,7 @@ function HomePage() {
         <section id="before-after" className="section transformations-section">
           <div className="section-heading centered-heading">
             <div><p className="eyebrow">Visible results</p><h2>From Messy to Remarkable</h2></div>
-            <p>Four spaces, transformed through thoughtful, detailed care.</p>
+            <p>Two spaces, transformed through thoughtful, detailed care.</p>
           </div>
           <div className="transformation-grid">
             {transformations.map(({ title, image }) => (
@@ -244,6 +244,26 @@ function HomePage() {
               <li><Check /> Customized for your space</li>
             </ul>
             <Button asChild variant="luxuryOutline" size="lg"><a href="#services">Explore Our Services <ArrowRight /></a></Button>
+          </div>
+        </section>
+
+        <section className="service-area-section" aria-labelledby="service-area-heading">
+          <div className="service-area-copy">
+            <p className="eyebrow">Location / Service Area</p>
+            <h2 id="service-area-heading">Proudly serving New Braunfels.</h2>
+            <p>Premium cleaning care for homes and businesses in New Braunfels, TX, United States.</p>
+            <div className="service-area-address">
+              <span><MapPin /></span>
+              <div><strong>Dream Clean Cleaning Service LLC</strong><small>New Braunfels, TX</small></div>
+            </div>
+          </div>
+          <div className="service-area-map-wrap">
+            <MapcnMarkerTooltip
+              latitude={29.703}
+              longitude={-98.1245}
+              title="Dream Clean Cleaning Service LLC"
+              subtitle="New Braunfels, TX"
+            />
           </div>
         </section>
 

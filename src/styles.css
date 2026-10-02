@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "maplibre-gl/dist/maplibre-gl.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -189,6 +190,27 @@ h1 em { color: var(--primary); font-style: normal; }
 .about-copy li { display: flex; align-items: center; gap: 10px; }
 .about-copy li svg { width: 16px; color: var(--primary); }
 
+.service-area-section { width: min(100% - 48px, 1220px); margin: 0 auto 124px; display: grid; grid-template-columns: .72fr 1.28fr; align-items: stretch; overflow: hidden; border: 1px solid color-mix(in oklab, var(--primary) 14%, var(--border)); border-radius: var(--radius-lg); background: var(--card); box-shadow: 0 24px 65px color-mix(in oklab, var(--ink) 8%, transparent); }
+.service-area-copy { padding: clamp(42px, 6vw, 78px); background: linear-gradient(145deg, var(--secondary), color-mix(in oklab, var(--background) 84%, var(--soft-pink))); }
+.service-area-copy h2 { max-width: 500px; margin: 0; color: var(--ink); font-size: clamp(2.25rem, 4vw, 4.2rem); font-weight: 500; line-height: 1.08; }
+.service-area-copy > p:not(.eyebrow) { max-width: 480px; margin: 24px 0 32px; color: var(--muted-foreground); line-height: 1.75; }
+.service-area-address { display: flex; align-items: center; gap: 14px; }
+.service-area-address > span { width: 44px; height: 44px; display: grid; flex: none; place-items: center; border-radius: 50%; background: var(--primary); color: var(--primary-foreground); box-shadow: var(--shadow-luxury); }
+.service-area-address svg { width: 18px; }
+.service-area-address strong, .service-area-address small { display: block; }
+.service-area-address strong { font: 700 12px/1.35 var(--font-display); }
+.service-area-address small { margin-top: 5px; color: var(--muted-foreground); font-size: 11px; }
+.service-area-map-wrap { min-height: 500px; position: relative; background: var(--muted); }
+.service-area-map { position: absolute; inset: 0; }
+.service-area-map .maplibregl-canvas { filter: saturate(.65) contrast(.96); }
+.service-area-marker { width: 24px; height: 24px; display: block; border: 5px solid var(--primary-foreground); border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 8px color-mix(in oklab, var(--primary) 22%, transparent), 0 8px 20px color-mix(in oklab, var(--ink) 26%, transparent); cursor: pointer; }
+.service-area-popup .maplibregl-popup-content { min-width: 230px; padding: 15px 17px; border: 1px solid color-mix(in oklab, var(--primary) 16%, var(--border)); border-radius: var(--radius-md); background: color-mix(in oklab, var(--background) 94%, transparent); box-shadow: 0 16px 42px color-mix(in oklab, var(--ink) 16%, transparent); backdrop-filter: blur(12px); }
+.service-area-popup .maplibregl-popup-tip { border-top-color: color-mix(in oklab, var(--background) 94%, transparent); }
+.service-area-popup strong, .service-area-popup span { display: block; }
+.service-area-popup strong { color: var(--ink); font: 700 12px/1.4 var(--font-display); }
+.service-area-popup span { margin-top: 4px; color: var(--muted-foreground); font: 11px/1.4 var(--font-sans); }
+.service-area-map .maplibregl-ctrl-group { border-radius: var(--radius-md); box-shadow: 0 10px 26px color-mix(in oklab, var(--ink) 12%, transparent); }
+
 .cta-section { padding: 0 24px 80px; }
 .cta-inner { width: min(100%, 1220px); margin: auto; padding: 95px 40px; position: relative; overflow: hidden; text-align: center; background: linear-gradient(135deg, var(--secondary), color-mix(in oklab, var(--background) 78%, var(--soft-pink))); }
 .cta-inner::before, .cta-inner::after { content: ""; position: absolute; border: 1px solid color-mix(in oklab, var(--primary) 18%, transparent); border-radius: 50%; }
@@ -226,6 +248,7 @@ footer > nav a:hover { color: var(--primary); }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .reels-grid { gap: 20px; }
   .accordion-shell { height: 480px; }
+  .service-area-section { grid-template-columns: .85fr 1.15fr; }
 }
 
 @media (max-width: 760px) {
@@ -264,6 +287,9 @@ footer > nav a:hover { color: var(--primary); }
   .about-section { width: min(100% - 32px, 1160px); grid-template-columns: 1fr; gap: 70px; padding: 10px 0 90px; }
   .about-image-wrap { height: 470px; }
   .about-badge { right: 15px; bottom: -38px; width: 120px; height: 120px; }
+  .service-area-section { width: min(100% - 32px, 1220px); margin-bottom: 88px; grid-template-columns: 1fr; }
+  .service-area-copy { padding: 48px 24px; }
+  .service-area-map-wrap { min-height: 400px; }
   .cta-section { padding: 0 16px 55px; }
   .cta-inner { padding: 72px 22px; }
   .footer-main { grid-template-columns: 1fr; gap: 15px; }
