@@ -163,6 +163,20 @@ h1 em { color: var(--primary); font-style: normal; }
 .transformation-caption h3 { margin: 0; font-size: 17px; font-weight: 600; }
 .transformation-caption span { color: var(--primary); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; }
 
+.reels-section { width: min(100% - 48px, 1220px); }
+.reels-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 320px)); justify-content: center; gap: 30px; }
+.reel-card { position: relative; overflow: hidden; aspect-ratio: 9 / 16; border-radius: 26px; background: linear-gradient(165deg, var(--soft-pink), color-mix(in oklab, var(--primary) 26%, var(--card)) 55%, color-mix(in oklab, var(--primary) 55%, var(--ink))); box-shadow: 0 18px 50px color-mix(in oklab, var(--ink) 8%, transparent); transition: transform .35s ease, box-shadow .35s ease; }
+.reel-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-luxury); }
+.reel-card video { width: 100%; height: 100%; object-fit: cover; }
+.reel-placeholder { position: absolute; inset: 0; background: radial-gradient(circle at 30% 20%, color-mix(in oklab, var(--background) 30%, transparent), transparent 55%); }
+.reel-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, color-mix(in oklab, var(--ink) 55%, transparent), transparent 42%); }
+.reel-play { position: absolute; top: 50%; left: 50%; z-index: 1; width: 60px; height: 60px; display: grid; place-items: center; border-radius: 50%; background: color-mix(in oklab, var(--background) 82%, transparent); color: var(--primary); backdrop-filter: blur(8px); transform: translate(-50%, -50%); transition: transform .35s ease, background .35s ease, color .35s ease; }
+.reel-play svg { width: 22px; margin-left: 2px; }
+.reel-card:hover .reel-play { background: var(--primary); color: var(--primary-foreground); transform: translate(-50%, -50%) scale(1.08); }
+.reel-caption { position: absolute; left: 18px; right: 18px; bottom: 18px; z-index: 1; display: flex; align-items: center; gap: 10px; color: var(--primary-foreground); }
+.reel-dot { width: 7px; height: 7px; flex: none; border-radius: 50%; background: var(--soft-pink); box-shadow: 0 0 0 3px color-mix(in oklab, var(--soft-pink) 25%, transparent); }
+.reel-caption h3 { margin: 0; font-size: 15px; font-weight: 600; }
+
 .about-section { width: min(100% - 48px, 1160px); margin: 0 auto; padding: 30px 0 140px; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(60px, 8vw, 120px); align-items: center; }
 .about-image-wrap { height: 570px; position: relative; }
 .about-image-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: 68% center; border-radius: 8px 90px 8px 70px; }
@@ -210,6 +224,7 @@ footer > nav a:hover { color: var(--primary); }
   .hero-image-wrap { border-radius: 90px 8px 60px 8px; }
   .hero-glass-card { left: -25px; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .reels-grid { gap: 20px; }
   .accordion-shell { height: 480px; }
 }
 
@@ -244,6 +259,8 @@ footer > nav a:hover { color: var(--primary); }
   .accordion-index { left: 18px; }
   .accordion-title { left: 20px; bottom: 24px; }
   .transformation-grid { grid-template-columns: 1fr; gap: 20px; }
+  .reels-section { width: min(100% - 32px, 1220px); }
+  .reels-grid { grid-template-columns: minmax(0, 340px); gap: 20px; }
   .about-section { width: min(100% - 32px, 1160px); grid-template-columns: 1fr; gap: 70px; padding: 10px 0 90px; }
   .about-image-wrap { height: 470px; }
   .about-badge { right: 15px; bottom: -38px; width: 120px; height: 120px; }
